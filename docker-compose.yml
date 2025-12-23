@@ -1,0 +1,15 @@
+services:
+  react-vite:
+    container_name: react-vite
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "51731:5173"
+    volumes:
+      - node_modules_data:/app/node_modules # Named volume for node_modules
+      - .:/app # Bind mount for source code
+    working_dir: /app
+
+volumes:
+  node_modules_data: # Define the named volume
